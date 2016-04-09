@@ -13,7 +13,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
           $this->load->view('header');
           //load the department_model
           $prof = $this->input->post("txt_id");
-          $prof=127;
+          //$prof=127;
           $this->load->model('department_model');  
           //call the model function to get the department data
           $deptresult = $this->department_model->get_department_list($prof);           

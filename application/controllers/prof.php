@@ -21,7 +21,8 @@ class prof extends CI_Controller
      }
 
      function display()
-
+     {
+     }
      function search()
      {
           $query_array=$this->input->post('iid');
