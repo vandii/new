@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeIgniter User Registration Form Demo</title>
-    <link href="<?php echo base_url("bootstrap/css/bootstrap.css"); ?>" rel="stylesheet" type="text/css" />
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Register</title>
+     <!--link the bootstrap css file-->
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+     
+     <style type="text/css">
+     .colbox {
+          margin-left: 0px;
+          margin-right: 0px;
+     }
+     </style>
 </head>
 <body>
-<div class="container">
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <?php echo $this->session->flashdata('verify_msg'); ?>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -63,5 +66,8 @@
     </div>
 </div>
 </div>
+
+<script type="text/javascript" src="<?php echo base_url("assets/js/jQuery-1.10.2.js"); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 </body>
 </html>
