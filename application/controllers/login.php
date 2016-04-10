@@ -17,6 +17,11 @@ class login extends CI_Controller
           $this->load->model('user_model');
      }
 
+     public function logout()
+     {
+          $this->login_model->user_logout();
+     }
+
      public function index()
      {
           //get the posted values
@@ -46,9 +51,9 @@ class login extends CI_Controller
                 'username' => $username
                 );
 
-            $this->user_model->insertsession($username);
+            $this->login_model->insertsession($username);
                       //   $this->session->set_userdata($sessiondata);
-                      //   redirect("index");
+                         redirect("home");
                     }
                     else
                     {
