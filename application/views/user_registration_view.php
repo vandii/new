@@ -54,6 +54,12 @@
                     <input class="form-control" name="cpassword" placeholder="Confirm Password" type="password" />
                     <span class="text-danger"><?php echo form_error('cpassword'); ?></span>
                 </div>
+                <div class="form-group">
+                <label for="subject">Id</label>
+                    <input class="form-control" name="id" placeholder="ID" type="text" />
+                    <span class="text-danger"><?php echo form_error('id'); ?></span>
+
+                </div>
 
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-default">Signup</button>

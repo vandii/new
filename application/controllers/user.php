@@ -23,6 +23,7 @@ class user extends CI_Controller
         $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email|is_unique[user.email]');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|matches[cpassword]|md5');
         $this->form_validation->set_rules('cpassword', 'Confirm Password', 'trim|required');
+        $this->form_validation->set_rules('id','Username','trim|required|max_length[5]');
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
@@ -36,9 +37,16 @@ class user extends CI_Controller
                 'fname' => $this->input->post('fname'),
                 'lname' => $this->input->post('lname'),
                 'email' => $this->input->post('email'),
-                'password' => $this->input->post('password')
-            );
+                'password' => $this->input->post('password'),
+                'username' => $this->input->post('id')            );
             
+            // $session = array(
+            //     'username' =>$this->input->post('id'),
+            //     'Name' => $this->input->post('fname')
+            //     );
+
+            // $this->user_model->insertsession($session);
+
             // insert form data into database
             if ($this->user_model->insertUser($data))
             {

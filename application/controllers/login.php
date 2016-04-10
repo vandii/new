@@ -14,6 +14,7 @@ class login extends CI_Controller
           $this->load->library('form_validation');
           //load the login model
           $this->load->model('login_model');
+          $this->load->model('user_model');
      }
 
      public function index()
@@ -40,13 +41,14 @@ class login extends CI_Controller
                     $usr_result = $this->login_model->get_user($username, $password);
                     if ($usr_result > 0) //active user record is present
                     {
-                         //set the session variables
-                         $sessiondata = array(
-                              'username' => $username,
-                              'loginuser' => TRUE
-                         );
-                         $this->session->set_userdata($sessiondata);
-                         redirect("index");
+                        // set the session variables
+            $session = array(
+                'username' => $username
+                );
+
+            $this->user_model->insertsession($username);
+                      //   $this->session->set_userdata($sessiondata);
+                      //   redirect("index");
                     }
                     else
                     {

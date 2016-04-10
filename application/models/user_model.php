@@ -12,6 +12,29 @@ class user_model extends CI_Model
     {
         return $this->db->insert('user', $data);
     }
+
+    function insertsession($username)
+    {
+
+
+        $type=$this->db->query("SELECT  `type` FROM `user` WHERE username = '" . $username . "'");
+        $name=$this->db->query("SELECT  `fname` FROM `user` WHERE username = '" . $username . "'");
+        $x=(int)$type->result() ;
+         $t=$name->result();
+         //foreach($name->result_array() as $t){
+                $v= $t[0]->fname;
+//Your code here
+
+//}
+$session = array('username' => $username,
+'type'=>$x,
+'name'=>$v );
+
+        //print_r($name->result());
+     //   echo $type->row();
+        // $session->type = $type;
+        return $this->db->insert('session', $session);
+    }
     
     //send verification email to user's email id
     function sendEmail($to_email)
