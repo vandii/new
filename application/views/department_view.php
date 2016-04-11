@@ -6,7 +6,13 @@
           <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>">
      </head>
      <body>
-     
+     <?php echo form_open('Department/search');?>
+     <div>
+          <?php echo form_label('Instructor-id','iid')?>
+          <?php echo form_input('iid',set_value('iid'),'id="id"');?>
+     </div>
+     <div><?php echo form_submit('action','Dig');?></div>
+     <?php echo form_close(); ?>
           <div class="container">
           <div class="row">
           <div class="col-lg-12 col-sm-12">
@@ -26,7 +32,7 @@
                                    <td><?php echo $deptlist[0]->InstId; ?></td>
                                    <td><?php echo $deptlist[$i]->Name ?></td>
                                    
-                                   <td><?php echo $deptlist[$i]->Salary; ?></td>
+                                   <td><?php if($admin==1) echo $deptlist[$i]->Salary; ?></td>
                               </tr>
                          <?php } ?>
                     </tbody>

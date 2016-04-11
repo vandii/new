@@ -30,6 +30,7 @@
             <li><a href="home/current">Current Courses</a></li>
             <li><a href="home/grade_sheet">Grade Sheet</a></li>
             <li><a href="home/admin">Admin work</a></li>
+            <li><a href="department">Department details</a></li>
         </ul>
     </div>
     <div id="page-content-wrapper">

@@ -6,16 +6,27 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
           parent::__construct();
           $this->load->helper('url');
           $this->load->database();
+          $this->load->library('session');
+          $this->load->helper('form');
+          $this->load->helper('url');
+          $this->load->helper('html');
+          $this->load->database();
+          $this->load->library('form_validation');
+
+        $this->load->model('home_model');
      }
 
      public function index()
      {
-          $this->load->view('header');
+          $this->load->view('logout');
           //load the department_model
           $prof = $this->input->post("txt_id");
           //$prof=127;
           $this->load->model('department_model');  
           //call the model function to get the department data
+          $username= $this->home_model->index();
+          $a=$this->home_model->is_admin($username);
+          $data['admin']
           $deptresult = $this->department_model->get_department_list($prof);           
           $data['deptlist'] = $deptresult;
           //load the department_view

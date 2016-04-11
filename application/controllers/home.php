@@ -37,7 +37,7 @@ class home extends CI_Controller
         $username= $this->home_model->index();
          $data['username'] =$username;
                 $this->load->view('logout');
-        $this->load->view('home_view',$data);
+        //$this->load->view('home_view',$data);
         $data['course']=$this->home_model->current_courses($username);
         $data['credit']= $this->home_model->tot_credits($username);
         $this->load->view('courses',$data);
@@ -56,8 +56,12 @@ class home extends CI_Controller
     {
       $username= $this->home_model->index();
       $a=$this->home_model->is_admin($username);
-      if((int)$a==0)
-        echo "OOPS!you cannot acces this page";
+      if((int)$a==0){
+        $this->load->view('err');}
+        // echo "OOPS!you cannot acces this page";
+      else
+        redirect('admin');
+      
 
     }
 }

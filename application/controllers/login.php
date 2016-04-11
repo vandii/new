@@ -6,6 +6,7 @@ class login extends CI_Controller
      public function __construct()
      {
           parent::__construct();
+          $this->load->view('header');
           $this->load->library('session');
           $this->load->helper('form');
           $this->load->helper('url');
@@ -20,6 +21,9 @@ class login extends CI_Controller
      public function logout()
      {
           $this->login_model->user_logout();
+          echo "Logged out";
+          //$this->load->view('log')
+          redirect('login/index');
      }
 
      public function index()

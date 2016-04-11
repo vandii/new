@@ -35,16 +35,18 @@
 					</button>
 					<a class="navbar-brand" href="<?= base_url() ?>">CDMS(College Database Management System)</a>
 				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				
+							<a href="/new/index.php/login/logout">Logout</a>
+<!-- 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-					<!-- 	<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?> -->
-							<li><a href="<?= base_url('/index.php/login/logout') ?>">Logout</a></li>
-					<!-- 	<?php endif; ?> -->
+					 	<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?> -->
+					<!--		<li><a href="/new/index.php/login/logout">Logout</a></li>
+					 	<?php endif; ?> -->
 					</ul>
-				</div><!-- .navbar-collapse -->
-			</div><!-- .container-fluid -->
-		</nav><!-- .navbar -->
-	</header><!-- #site-header -->
+				</div> 
+			</div>
+		</nav>
+	</header>
 	<script type="text/javascript" src="<?php echo base_url("assets/js/jQuery-1.10.2.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 

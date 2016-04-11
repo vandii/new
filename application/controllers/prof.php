@@ -8,6 +8,9 @@ class prof extends CI_Controller
           parent::__construct();
           $this->load->helper('html');
           $this->load->database();
+          $this->load->helper('cookie');
+          $_platform = get_cookie('platform'); 
+
           //load the login model
           $this->load->model('prof_model');
      }
@@ -27,6 +30,6 @@ class prof extends CI_Controller
      {
           $query_array=$this->input->post('iid');
           $query_id =$this->input->save($query_array);
-          redirect('prof/display/$query_id');
+          redirect('prof/display');
      }
 }?>
