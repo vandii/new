@@ -30,7 +30,7 @@
 <div class="form-group">
                <div class="col-lg-12 col-sm-12 text-center">
                     <input id="btn_login" name="btn_login" type="submit" class="btn btn-default" value="Push Grades" />
-               </div>
+                </div>
                </div>
                 <?php echo form_close(); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
