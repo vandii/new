@@ -7,22 +7,36 @@ class Student extends CI_Controller {
           parent::__construct();
           $this->load->helper('url');
           $this->load->database();
+          $this->load->library('session');
+          $this->load->helper('form');
+          // $this->load->helper('url');
+          $this->load->helper('html');
+          $this->load->database();
+          $this->load->library('form_validation');
+
+        $this->load->model('home_model');
      }
 
   function index()
-  { $this->load->view('header');
+  { 
+    $this->load->view('logout');
+
     // display information for the view
     $data['title'] = "Classroom: Home Page";
     $data['headline'] = "Welcome to the Classroom Management System";
     $data['include'] = 'student_index';
-
-    $this->load->view('template', $data);
-    $this->load->view('footer');
+    $username= $this->home_model->index();
+      $a=$this->home_model->is_admin($username);
+      if((int)$a==0){
+        $this->load->view('err');}
+        else
+      $this->load->view('template', $data);
+      $this->load->view('footer');
   }
 
   function add()
   {   
-    $this->load->view('header');
+    $this->load->view('logout');
     $this->load->helper('form');
     
     // display information for the view
@@ -36,7 +50,7 @@ class Student extends CI_Controller {
 
   function create()
   {
-    $this->load->view('header');
+    $this->load->view('logout');
     $this->load->helper('url');
     
     $this->load->model('MStudent','',TRUE);
@@ -47,7 +61,7 @@ class Student extends CI_Controller {
 
   function listing()
   {  
-    $this->load->view('header');
+    $this->load->view('logout');
     $this->load->library('table');
     
     $this->load->model('MStudent','',TRUE);
@@ -63,13 +77,13 @@ class Student extends CI_Controller {
     
     $this->table->set_empty("&nbsp;"); 
   
-    $this->table->set_heading('', 'Child Name', 'Parent Name', 'Address', 
-        'City', 'State', 'Zip', 'Phone', 'Email');
+    $this->table->set_heading('', 'username', 'Grade',  'Email','CourseNo');
 
   
     $table_row = array();
     foreach ($students_qry->result() as $student)
     {
+    //  print_r($students_qry->result());
       $table_row = NULL;
       $table_row[] = '<nobr>' . 
         anchor('student/edit/' . $student->id, 'edit') . ' | ' .
@@ -79,13 +93,15 @@ class Student extends CI_Controller {
         '</nobr>';
       // replaced above :: $table_row[] = anchor('student/edit/' . $student->id, 'edit');
       $table_row[] = $student->s_name;
-      $table_row[] = $student->p_name;
-      $table_row[] = $student->address;
-      $table_row[] = $student->city;
-      $table_row[] = $student->state;
-      $table_row[] = $student->zip;
-      $table_row[] = $student->phone;
+      $table_row[] = $student->Grade;
+
+//      $table_row[] = $student->address;
+      // $table_row[] = $student->city;
+      // $table_row[] = $student->state;
+      // $table_row[] = $student->zip;
+      // $table_row[] = $student->phone;
       $table_row[] = mailto($student->email);
+      $table_row[] = $student->CourseNo;
 
       $this->table->add_row($table_row);
     }    
@@ -107,7 +123,7 @@ class Student extends CI_Controller {
   }
   
   function edit()
-  { $this->load->view('header');
+  { $this->load->view('logout');
     $this->load->helper('form');
 
     $id = $this->uri->segment(3);
@@ -124,7 +140,7 @@ class Student extends CI_Controller {
   }
 
   function update()
-  { $this->load->view('header');
+  { $this->load->view('logout');
     $this->load->model('MStudent','',TRUE);
     $this->MStudent->updateStudent($_POST['id'], $_POST);
     redirect('student/listing','refresh');
@@ -134,7 +150,7 @@ class Student extends CI_Controller {
   function delete()
   {
 
-    $this->load->view('header');
+    $this->load->view('logout');
     $id = $this->uri->segment(3);
     
     $this->load->model('MStudent','',TRUE);
@@ -142,6 +158,14 @@ class Student extends CI_Controller {
     redirect('student/listing','refresh');
     $this->load->view('footer');
   }
+  
+  function push_grades()
+  {
+    $this->load->view('logout');
+    $this->load->model('MStudent');
+    $this->MStudent->pushgrades();
+
+  }  
 
 }
 /* End of file student.php */

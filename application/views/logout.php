@@ -37,6 +37,7 @@
 				</div>
 				
 							<a href="/new/index.php/login/logout">Logout</a>
+							<span class="glyphicons glyphicons-user"></span>
 <!-- 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 					 	<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?> -->

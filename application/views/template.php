@@ -26,6 +26,13 @@
 <h1><?php echo $headline;?></h1>
 <!--<?php echo $include ;?>!-->
 <?php $this->load->view($include);?>
+<?php echo form_open("student/push_grades");?>
+<div class="form-group">
+               <div class="col-lg-12 col-sm-12 text-center">
+                    <input id="btn_login" name="btn_login" type="submit" class="btn btn-default" value="Push Grades" />
+               </div>
+               </div>
+                <?php echo form_close(); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!--load bootstrap.js-->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

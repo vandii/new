@@ -3,7 +3,7 @@
 echo form_open('student/create');
 
 // an array of the fields in the student table
-$field_array = array('s_name','p_name','address','city','state','zip','phone','email');
+$field_array = array('s_name','Grade','CourseNo','email');
 foreach($field_array as $field)
 {
   echo '<p>' . $field;

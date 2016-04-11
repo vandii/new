@@ -34,6 +34,49 @@ class mstudent extends CI_Model{
     $this->db->delete('nstudent'); 
   }
 
+  function pushgrades()
+  {
+     $table_row = array();
+
+    $query=$this->db->query("SELECT * FROM `nstudent` WHERE 1");
+    foreach ($query->result() as $student)
+    {
+      $a = (int)$student->s_name;
+      $b = $student->Grade;
+      //$table_row[] = mailto($student->email);
+      $c = $student->CourseNo;
+      $qw=$this->db->query("SELECT * FROM `enroll` WHERE 1");
+      foreach ($qw->result() as $entry) { $c1=0;$c2=0;
+      if ($entry->Rollno == $a) {
+         $c1++;
+         echo "  here1  ";
+      }
+      if((string)$entry->CourseNo == $c){
+        $c1++;
+      echo "here2\n";
+      }
+      if((int)$entry->Semester == 2){
+          $c1++;
+          echo "here3\n";
+        }
+      if ((int)$entry->Year == 2015)
+        {  $c1++;
+          echo "here4\n";}
+      echo $c1;
+      }
+  //    print_r($qw->result());
+    //  $q = $this->db->query("SELECT * FROM `enroll` WHERE `Rollno`='".$a."' AND `CourseNo`='".$c."' AND `Semester` ='2' AND `Year` ='2015'");
+    //print_r($q->result());
+     // echo $q->num_rows() ;
+      //if ( $q->num_rows() > 0 )
+      //{
+        //echo "here";
+      //}
+     // echo "here";
+//      $this->db->insert("INSERT INTO `enroll`(`Rollno`, `CourseNo`, `Grade`, `Semester`, `Year`) VALUES ($a,$c,$b,'2','2015')");
+    }
+  }
+
 }
 /* End of file nstudent.php */
 /* Location: ./system/application/models/nstudent.php */

@@ -25,7 +25,7 @@
                </div>
                               <div class="form-group">
                <div class="col-lg-12 col-sm-12 text-center">
-                    <input id="btn_login" name="btn_login" type="submit" class="btn btn-default" value="Login" />
+                    <input id="btn_login" name="btn_login" type="submit" class="btn btn-default" value="Dig!" />
                      </div>
                </div>
                     <?php echo form_close(); ?>
@@ -47,7 +47,7 @@
                                    <td><?php echo ($i+1); ?></td>
                                    <td><?php echo $deptlist[0]->InstId; ?></td>
                                    <td><?php echo $deptlist[$i]->Name ?></td>
-                                   <td><?php echo $deptlist[$i]->Salary; ?></td>
+                                  <td><?php if($admin==1) echo $deptlist[$i]->Salary; ?></td>
                               </tr>
                          <?php } ?>
                     </tbody>

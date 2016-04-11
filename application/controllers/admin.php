@@ -21,7 +21,8 @@ class admin extends CI_Controller
       	$a=$this->home_model->is_admin($username);
       	if((int)$a==0){
         	$this->load->view('err');}
-
+        else
+          $this->load->view('admin_view');
     }
 }
 
