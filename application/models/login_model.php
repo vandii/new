@@ -11,25 +11,32 @@ class login_model extends CI_Model
 
     function insertsession($username)
     {
-
-
-        $type=$this->db->query("SELECT  `type` FROM `user` WHERE username = '" . $username . "'");
-        $name=$this->db->query("SELECT  `fname` FROM `user` WHERE username = '" . $username . "'");
-        $x=(int)$type->result() ;
+        $name =(int)$username;
+       // echo $username;
+        $type=$this->db->query("SELECT  `type` FROM `user` WHERE username = '" . $name . "'");
+        $name=$this->db->query("SELECT  `fname` FROM `user` WHERE username = '" . $name . "'");
+       // echo $type;
+        $x=$type->result() ;
          $t=$name->result();
          //foreach($name->result_array() as $t){
                 $v= $t[0]->fname;
 //Your code here
-
+                echo $x[0]->type;
 //}
 $session = array('username' => $username,
-'type'=>$x,
+'type'=>$x[0]->type,
 'name'=>$v );
-
+//echo "sesion-type";
+//echo $x;
         //print_r($name->result());
      //   echo $type->row();
         // $session->type = $type;
-        return $this->db->insert('session', $session);
+$abc= "SELECT * FROM `session` WHERE `username`='".$username."'"; 
+        $query =$this->db->query($abc);
+        if($query->num_rows() > 0)
+          echo "Already Logged in!You cannot have more than one active session";
+        else
+            return $this->db->insert('session', $session);
     }
     
 

@@ -51,7 +51,7 @@ class login extends CI_Controller
                 'username' => $username
                 );
 
-            $this->login_model->insertsession($username);
+                     $this->login_model->insertsession($username);
                       //   $this->session->set_userdata($sessiondata);
                          redirect("home");
                     }

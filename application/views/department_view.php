@@ -25,6 +25,7 @@
                                    <td><?php echo ($i+1); ?></td>
                                    <td><?php echo $deptlist[0]->InstId; ?></td>
                                    <td><?php echo $deptlist[$i]->Name ?></td>
+                                   
                                    <td><?php echo $deptlist[$i]->Salary; ?></td>
                               </tr>
                          <?php } ?>

@@ -37,13 +37,10 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-<!-- 						<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-							<li><a href="<?= base_url('logout') ?>">Logout</a></li>
-						<?php else : ?> -->
-							<li><a href="<?= base_url('/index.php/user') ?>">Register</a></li>
-							<li><a href="<?= base_url('/index.php/login') ?>">Login</a></li>
-<!-- 						<?php endif; ?>
- -->					</ul>
+					<!-- 	<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?> -->
+							<li><a href="<?= base_url('/index.php/login/logout') ?>">Logout</a></li>
+					<!-- 	<?php endif; ?> -->
+					</ul>
 				</div><!-- .navbar-collapse -->
 			</div><!-- .container-fluid -->
 		</nav><!-- .navbar -->
@@ -55,13 +52,13 @@
 
 	<main id="site-content" role="main">
 		
-		<?php if (isset($_SESSION)) : ?>
+<!-- 		<?php if (isset($_SESSION)) : ?>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<?php var_dump($_SESSION); ?>
 					</div>
-				</div><!-- .row -->
-			</div><!-- .container -->
+				</div>
+			</div>
 		<?php endif; ?>
-		
+ -->		
