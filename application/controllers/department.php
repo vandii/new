@@ -21,16 +21,16 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
           $this->load->view('logout');
           //load the department_model
           $prof = $this->input->post("txt_id");
-          //$prof=127;
+       //   $prof='SAM';
           $this->load->model('department_model');  
           //call the model function to get the department data
           $username= $this->home_model->index();
           $a=$this->home_model->is_admin($username);
-          $data['admin']
+         $data['admin']=$this->home_model->is_admin($username);
           $deptresult = $this->department_model->get_department_list($prof);           
           $data['deptlist'] = $deptresult;
           //load the department_view
-          $this->load->view('department_view',$data);
+          $this->load->view('department_view1',$data);
           $this->load->view('footer');
 
      }
