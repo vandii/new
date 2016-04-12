@@ -90,7 +90,7 @@ class admin extends CI_Controller
         $a=$this->home_model->is_admin($username);
         if((int)$a==0){
           $this->load->view('err');}
-          elseif((int)$a==0){
+          elseif((int)$a==2 ){
           $this->load->view('err');}
         else
         {

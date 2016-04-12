@@ -164,7 +164,8 @@ class Student extends CI_Controller {
     $this->load->view('logout');
     $this->load->model('MStudent');
     $this->MStudent->pushgrades();
-
+    //echo "Success!!!";
+    $this->load->view('success');
   }  
 
 }

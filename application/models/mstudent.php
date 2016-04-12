@@ -49,20 +49,47 @@ class mstudent extends CI_Model{
       foreach ($qw->result() as $entry) { $c1=0;$c2=0;
       if ($entry->Rollno == $a) {
          $c1++;
-         echo "  here1  ";
+        // echo "  here1  ";
       }
       if((string)$entry->CourseNo == $c){
         $c1++;
-      echo "here2\n";
+      //echo "here2\n";
       }
       if((int)$entry->Semester == 2){
           $c1++;
-          echo "here3\n";
+      //    echo "here3\n";
         }
       if ((int)$entry->Year == 2015)
         {  $c1++;
-          echo "here4\n";}
-      echo $c1;
+        //  echo "here4\n";
+        }
+    //  echo $c1;
+      }
+      $year = 2015;
+      $sem=2;
+      $q =$this->db->query("SELECT * from `enroll` WHERE `Rollno`='".$a."' AND `Semester` ='".$sem."' AND `Year` ='".$year."'");
+      //print_r($q->result());
+      //echo $q->num_rows();
+            if((string)$entry->CourseNo == $c){
+        $c1++;
+     // echo "This shit is  fucked up\n";
+      }
+//      $q=$this->db->update(" UPDATE `enroll` SET `Grade`='".$b."' WHERE `Rollno`='".$a."' AND `CourseNo`='".$c."' AND `Semester` ='2' AND `Year` ='2015'");
+      $query = $this->db->query("SELECT * FROM `enroll` WHERE `Rollno`='".$a."' AND `CourseNo`='".$c."' AND `Semester` ='".$sem."' AND `Year` ='".$year."'");
+      //echo $query->num_rows();
+      if($query->num_rows()==0)
+      {
+
+        //$this->db->insert("INSERT INTO `enroll`(`Rollno`, `CourseNo`, `Grade`, `Semester`, `Year`) VALUES ($a,$c,$b,$sem,$year)");
+      }
+      else
+      {
+        $data=array('Rollno' =>$a ,'CourseNo' => $c, 'Semester' =>$sem ,'Year'=>$year,'Grade'=>$b);
+      $this->db->where('enroll', array('Rollno' =>$a ,'CourseNo' => $c, 'Semester' =>$sem ,'Year'=>$year ));
+      $w=$this->db->update('enroll', $data); 
+     // echo $w;
+      //echo $this->db->affected_rows();
+//        $q=$this->db->update(" UPDATE `enroll` SET `Grade`='".$b."' WHERE `Rollno`='".$a."' AND `CourseNo`='".$c."' AND `Semester` ='2' AND `Year` ='2015'");  
       }
   //    print_r($qw->result());
     //  $q = $this->db->query("SELECT * FROM `enroll` WHERE `Rollno`='".$a."' AND `CourseNo`='".$c."' AND `Semester` ='2' AND `Year` ='2015'");
@@ -74,6 +101,8 @@ class mstudent extends CI_Model{
       //}
      // echo "here";
 //      $this->db->insert("INSERT INTO `enroll`(`Rollno`, `CourseNo`, `Grade`, `Semester`, `Year`) VALUES ($a,$c,$b,'2','2015')");
+        
+
     }
   }
 

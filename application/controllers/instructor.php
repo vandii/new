@@ -20,7 +20,8 @@ class instructor extends CI_Controller
     {
     	$username= $this->home_model->index();
       	$a=$this->home_model->is_admin($username);
-      	if((int)$a==0){
+      	 $this->load->view('logout');
+        if((int)$a==0){
         	$this->load->view('err');}
         else
           $this->load->view('instructor_view');
@@ -43,6 +44,7 @@ class instructor extends CI_Controller
         elseif ($this->form_validation->run() == FALSE)
         {
             // fails
+          $this->load->view('logout');
             $this->load->view('add_courses');
           # code...
         }
@@ -75,6 +77,7 @@ class instructor extends CI_Controller
         {
           $details=$this->admin_model->get_student_details();
           $data['stu']=$details;
+          $this->load->view('logout');
           $this->load->view('Stu',$data);
         }
     }
@@ -90,6 +93,7 @@ class instructor extends CI_Controller
         {
           $details=$this->admin_model->get_instructor_details();
           $data['in']=$details;
+          $this->load->view('logout');
           $this->load->view('in',$data);
         }
     }

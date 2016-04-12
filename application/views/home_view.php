@@ -27,12 +27,13 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a href="#">Home</a></li>
-            <li><a href="home/current">Current Courses</a></li>
-            <li><a href="home/grade_sheet">Grade Sheet</a></li>
-            <li><a href="home/admin">Admin work</a></li>
+            <li><a href="home/current"><?php if($admin ==0) echo "Current Courses"; ?></a></li>
+            <li><a href="home/grade_sheet"><?php if($admin ==0) echo "Grade Sheet"; ?></a></li>
+            <li><a href="home/admin"><?php if($admin ==1) echo "Admin Panel"; ?></a></li>
+            <li><a href="home/instructor"><?php if($admin ==2) echo "Instructor Panel"; ?></a></li>
             <li><a href="department">Department details</a></li>
             <li><a href="/search.php">Registration data</a></li>
-            <li><a href="home/instructor">Instructor Panel</a></li>
+<!--             <li><a href="home/instructor"><?php if($admin ==2) echo "Instructor Panel"; ?></a></li> -->
         </ul>
     </div>
     <div id="page-content-wrapper">

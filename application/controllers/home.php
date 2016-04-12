@@ -23,7 +23,9 @@ class home extends CI_Controller
     {
         $username= $this->home_model->index();
         $data['username'] =$username;
-    
+        $username= $this->home_model->index();
+         $a=$this->home_model->is_admin($username);
+         $data['admin']=$a;
         $this->load->view('logout');
         $data['details']=$this->home_model->get_details();
      //   echo $data['posts'];
@@ -38,6 +40,7 @@ class home extends CI_Controller
         $username= $this->home_model->index();
          $data['username'] =$username;
                 $this->load->view('logout');
+
         //$this->load->view('home_view',$data);
         $data['course']=$this->home_model->current_courses($username);
         $data['credit']= $this->home_model->tot_credits($username);

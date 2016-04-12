@@ -37,7 +37,7 @@
         <!-- main area -->
         <div class="col-xs-12 col-sm-9">
           <h1>Welcome to Instructor Panel</h1>
-          <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+          <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
           <p><p><a class="btn btn-primary btn-lg" href="/new/index.php/home" role="button">Let's go back to homepage</a></p></p>
           
         </div><!-- /.col-xs-12 main -->
