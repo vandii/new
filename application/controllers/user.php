@@ -58,17 +58,21 @@ class user extends CI_Controller
                     redirect('user/register');
                 }
                 else
-                {
-                    // error
-                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
-                    redirect('user/register');
+                {    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!</div>');
+                    redirect('/new/index.php/login');
+                    // // error
+                    // $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
+                    // redirect('user/register');
                 }
             }
             else
             {
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!</div>');
+                    redirect('/new/index.php/login');
+
                 // error
-                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
-                redirect('user/register');
+                // $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
+                // redirect('user/register');
             }
         }
     }

@@ -31,6 +31,8 @@
             <li><a href="home/grade_sheet">Grade Sheet</a></li>
             <li><a href="home/admin">Admin work</a></li>
             <li><a href="department">Department details</a></li>
+            <li><a href="/search.php">Registration data</a></li>
+            <li><a href="home/instructor">Instructor Panel</a></li>
         </ul>
     </div>
     <div id="page-content-wrapper">
@@ -38,13 +40,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- content of page -->
+                    <?php foreach ($details as $d) {
+                     echo "<h4>Your Details</h4><br>";
+                     echo "<b>Name</b>  \t :      ";echo $d->fname;echo " ";echo $d->lname;echo "<br>";
+                    echo "<b>Email Id</b>  :  "; echo $d->email; echo"<br>";
+                    echo"<b>type  :   </b>"; if($d->type==1) echo "admin";
+                    elseif ($d->type == 2) {
+                                  echo "Instructor";
+                              }          
+                    else
+                        echo "Student";
+                    }?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <script type="text/javascript" src="<?php echo base_url("assets/js/jQuery-1.10.2.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>

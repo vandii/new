@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class admin extends CI_Controller
+class instructor extends CI_Controller
 {
 	public function __construct()
     {
@@ -23,7 +23,7 @@ class admin extends CI_Controller
       	if((int)$a==0){
         	$this->load->view('err');}
         else
-          $this->load->view('admin_view');
+          $this->load->view('instructor_view');
     }
     function add_courses()
     {
@@ -32,12 +32,8 @@ class admin extends CI_Controller
         $a=$this->home_model->is_admin($username);
                   $sem = 2;
           $y = 2015;
-        if((int)$a==0 ){
+        if((int)$a==0){
           $this->load->view('err');}
-          elseif ((int)$a==2) {
-            $this->load->view('err');
-              # code...
-          }
         //   elseif ($this->form_validation->run() == FALSE)
         // {
         //     // fails
@@ -89,8 +85,6 @@ class admin extends CI_Controller
       $username= $this->home_model->index();
         $a=$this->home_model->is_admin($username);
         if((int)$a==0){
-          $this->load->view('err');}
-          elseif((int)$a==0){
           $this->load->view('err');}
         else
         {

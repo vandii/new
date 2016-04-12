@@ -1,6 +1,6 @@
 <html>
      <head>
-          <title>Admin Panel</title>
+          <title>Department Master</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <!--link the bootstrap css file-->
           <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>">
@@ -30,15 +30,13 @@
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="/new/index.php/student">Add Grades</a></li>
-              <li><a href="/new/index.php/admin/add_courses">Add Courses</a></li>
-              <li><a href="/new/index.php/admin/get_students">Fetch Student details</a></li>
-               <li><a href="/new/index.php/admin/get_instructor">Fetch Instructor details</a></li>              
+              <li><a href="/new/index.php/admin/get_students">Fetch Student details</a></li>            
             </ul>
         </div>
   	
         <!-- main area -->
         <div class="col-xs-12 col-sm-9">
-          <h1>Welcome to Admin Panel</h1>
+          <h1>Welcome to Instructor Panel</h1>
           <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
           <p><p><a class="btn btn-primary btn-lg" href="/new/index.php/home" role="button">Let's go back to homepage</a></p></p>
           

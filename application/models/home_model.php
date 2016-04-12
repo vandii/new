@@ -28,9 +28,15 @@ class home_model extends CI_Model
      {	
 //     	echo "I am in ";
      	$r=$this->db->query("SELECT SUM(`credits`) as `sum` FROM `enroll` , `courses` WHERE `enroll`.`Rollno`='" . $username . "' AND `enroll`.`Semester` = 2 AND `enroll`.`Year` = '2015' AND `enroll`.`CourseNo` = `courses`.`CourseNo`");
-     	$v=($r->result());
+   //  	$v=($r->result());
      	return $v[0]->sum ;
 
+     }
+     function get_details()
+     {
+        $v= $this->db->query("SELECT * FROM `session`,`user` WHERE `session`.`username`=`user`.`username`");
+    //    print_r($v->result());
+        return($v->result());
      }
 
       function current_courses($username)
@@ -59,9 +65,9 @@ class home_model extends CI_Model
       }
       function is_admin($username)
       {
-		$query =$this->db->query("SELECT`type` FROM `session` WHERE `username` ='" . $username . "'");
-		$q =$query->result();
-		return $q[0]->type;      	
+  		$query =$this->db->query("SELECT`type` FROM `session` WHERE `username` ='" . $username . "'");
+	   	$q =$query->result();
+		  return $q[0]->type;      	
       }
 }
 
