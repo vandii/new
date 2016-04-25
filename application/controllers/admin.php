@@ -100,6 +100,35 @@ class admin extends CI_Controller
         }
     }
 
+    function delete()
+    {
+      $this->load->view('logout');
+      $username= $this->home_model->index();
+        $a=$this->home_model->is_admin($username);
+        if((int)$a==0){
+          $this->load->view('err');}
+          elseif((int)$a==2 ){
+          $this->load->view('err');}
+          else
+          {   
+              $this->load->view('delete_view1');
+             $prof = $this->input->post("txt_id");
+              $c = $this->input->post("course_id");
+           $q= $this->admin_model->delete($prof,$c);
+           // echo $q;
+           if($q==1)
+            echo "<div class='alert alert-success'>
+      <strong>Success!</strong> Deleted
+      </div>";
+          else if($q==0)
+            echo "<div class='alert alert-warning'  >
+  <strong>Warning!</strong> Record does not exist
+</div>";
+          }
+    }
+
+
+
 }
 
 ?>

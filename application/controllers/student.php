@@ -86,8 +86,8 @@ class Student extends CI_Controller {
     //  print_r($students_qry->result());
       $table_row = NULL;
       $table_row[] = '<nobr>' . 
-        anchor('student/edit/' . $student->id, 'edit') . ' | ' .
-        anchor('student/delete/' . $student->id, 'delete',
+      //  anchor('student/edit/' . $student->id, 'edit') . ' | ' .
+        anchor('student/edit/' . $student->id, 'edit',
           "onClick=\" return confirm('Are you sure you want to '
             + 'delete the record for $student->s_name?')\"") .
         '</nobr>';

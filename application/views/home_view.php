@@ -33,6 +33,7 @@
             <li><a href="home/instructor"><?php if($admin ==2) echo "Instructor Panel"; ?></a></li>
             <li><a href="department">Department details</a></li>
             <li><a href="/search.php">Registration data</a></li>
+            <li><a href="/chart.php">Get course statistics</a></li>
 <!--             <li><a href="home/instructor"><?php if($admin ==2) echo "Instructor Panel"; ?></a></li> -->
         </ul>
     </div>

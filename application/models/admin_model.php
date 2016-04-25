@@ -23,6 +23,15 @@ class admin_model extends CI_Model
         $q=$this->db->query("SELECT * FROM `instructor`,`department` WHERE `instructor`.`DeptId`=`department`.`DeptId`");
         return ($q->result());
     }
+    function delete($Rollno,$courseno)
+    {
+        $this->db->where(array('Rollno' =>$Rollno , 'CourseNo'=> $courseno));
+       $this->db->delete('enroll');
+       if ($this->db->affected_rows()>0)
+        return 1;
+    else
+        return 0;
+    }
 }
     
 ?>

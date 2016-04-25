@@ -32,7 +32,8 @@
               <li><a href="/new/index.php/student">Add Grades</a></li>
               <li><a href="/new/index.php/admin/add_courses">Add Courses</a></li>
               <li><a href="/new/index.php/admin/get_students">Fetch Student details</a></li>
-               <li><a href="/new/index.php/admin/get_instructor">Fetch Instructor details</a></li>              
+               <li><a href="/new/index.php/admin/get_instructor">Fetch Instructor details</a></li>           
+               <li><a href="/new/index.php/admin/delete">Remove Enrollment</a></li>   
             </ul>
         </div>
   	

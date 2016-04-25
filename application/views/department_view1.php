@@ -15,7 +15,7 @@
                <div class="form-group">
                <div class="row colbox">
                <div class="col-lg-4 col-sm-4">
-                    <label for="txt_username" class="control-label">Dept Name</label>
+                    <label for="txt_username" class="control-label"><p align="center">Dept Name</p><br></label>
                </div>
                <div class="col-lg-8 col-sm-8">
                     <input class="form-control" id="txt_id" name="txt_id" placeholder="Username" type="text" value="<?php echo set_value('txt_id'); ?>" />
@@ -45,7 +45,7 @@
                          <?php for ($i = 0; $i < count($deptlist); ++$i) { ?>
                               <tr>
                                    <td><?php echo ($i+1); ?></td>
-                                   <td><?php echo $deptlist[0]->InstId; ?></td>
+                                   <td><?php echo $deptlist[$i]->InstId; ?></td>
                                    <td><?php echo $deptlist[$i]->Name ?></td>
                                   <td><?php if($admin==1) echo $deptlist[$i]->Salary; ?></td>
                               </tr>

@@ -59,7 +59,7 @@ class user extends CI_Controller
                 }
                 else
                 {    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!</div>');
-                    redirect('/new/index.php/login');
+                    redirect('login');
                     // // error
                     // $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
                     // redirect('user/register');
@@ -68,7 +68,7 @@ class user extends CI_Controller
             else
             {
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!</div>');
-                    redirect('/new/index.php/login');
+                    redirect('login');
 
                 // error
                 // $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
